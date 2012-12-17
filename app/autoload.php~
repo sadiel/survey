@@ -17,7 +17,6 @@ $loader->registerNamespaces(array(
     'Metadata'         => __DIR__.'/../vendor/metadata/src',
     'FOS\\Rest'        => __DIR__.'/../vendor/fos',
     'FOS'              => __DIR__.'/../vendor/bundles',
-    'JMS'              => __DIR__.'/../vendor/bundles',    
     'Metadata'         => __DIR__.'/../vendor/metadata/src',
 ));
 $loader->registerPrefixes(array(
