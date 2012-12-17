@@ -13,3 +13,6 @@ JMSSecurityExtraBundle e752f888c51425f71382c056961f10f2be642102
 SensioDistributionBundle v2.0.17
 SensioGeneratorBundle v2.0.19
 AsseticBundle 6f15728c1aefa5246caa83730e3dbf70b0d46052
+FOSRest b48857315c39715245303fb5bbc1bab98026209e
+FOSRestBundle d1b3fcf34fba7e3f6ce78753bd205731e66d84b8
+JMSSerializerBundle 0.9.0
