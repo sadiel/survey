@@ -1,0 +1,7 @@
+parameters:
+#    gamma_survey.example.class: Gamma\Bundle\SurveyBundle\Example
+
+services:
+#    gamma_survey.example:
+#        class: %gamma_survey.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
