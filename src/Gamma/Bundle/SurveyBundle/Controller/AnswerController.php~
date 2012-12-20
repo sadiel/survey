@@ -19,7 +19,7 @@ class AnswerController extends Controller
     public function allAction()
     {
         $answers = $this->getDoctrine()
-            ->getRepository('GammaSurveyBundle:answer')
+            ->getRepository('GammaSurveyBundle:Answer')
             ->findAll;
 
         return new Response(json_encode(array('answers' => $answers)));
@@ -53,12 +53,12 @@ class AnswerController extends Controller
         
         $answer = $request->request->get('answer');
         
-        echo $request->request->get('answer'); exit;
+        //echo $request->request->get('answer'); exit;
         
         /*$em = $this->getDoctrine()->getManager();
         $em->persist($answer); 
         $em->flush();*/
         
-        //return new Response(json_encode(array('answer' => $answer)));        
+        return new Response(json_encode(array('answer' => $answer)));        
     }
 }

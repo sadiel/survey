@@ -19,8 +19,8 @@ class AnswerController extends Controller
     public function allAction()
     {
         $answers = $this->getDoctrine()
-            ->getRepository('GammaSurveyBundle:answer')
-            ->findAll;
+            ->getRepository('GammaSurveyBundle:Answer')
+            ->findAll();
 
         return new Response(json_encode(array('answers' => $answers)));
     }
