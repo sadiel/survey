@@ -66,4 +66,7 @@ fos_rest:
 jms_serializer:
     metadata:
         auto_detection: true
-
+        directories:
+            FOSUserBundle:
+                namespace_prefix: Gamma\\SurveyBundle
+                path: "@GammaSurveyBundle/Resources/config/serializer/gamma"

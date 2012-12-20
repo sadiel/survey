@@ -16,7 +16,7 @@ gamma_survey_answer_get:
         id: "\d+"
     
 gamma_survey_answer_new:
-    pattern:  /answer
+    pattern:  /newanswer
     defaults: { _controller: GammaSurveyBundle:Answer:new, _format: ~ }
     requirements:
         _method: POST    
