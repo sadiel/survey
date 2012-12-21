@@ -29,11 +29,10 @@ class Response
     private $text;
 
     /**
-     * @var integer $id_question
-     *
-     * @ORM\Column(name="id_question", type="integer")
+     * @ORM\ManyToOne(targetEntity="Question", inversedBy="responses")
+     * @ORM\JoinColumn(name="question_id", referencedColumnName="id")
      */
-    private $id_question;
+    protected $question;
 
     /**
      * @var string $kind
@@ -111,5 +110,25 @@ class Response
     public function getKind()
     {
         return $this->kind;
+    }
+
+    /**
+     * Set question
+     *
+     * @param Gamma\Bundle\SurveyBundle\Entity\Question $question
+     */
+    public function setQuestion(\Gamma\Bundle\SurveyBundle\Entity\Question $question)
+    {
+        $this->question = $question;
+    }
+
+    /**
+     * Get question
+     *
+     * @return Gamma\Bundle\SurveyBundle\Entity\Question 
+     */
+    public function getQuestion()
+    {
+        return $this->question;
     }
 }

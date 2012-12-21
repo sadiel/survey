@@ -3,6 +3,7 @@
 namespace Gamma\Bundle\SurveyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Gamma\Bundle\SurveyBundle\Entity\Question
@@ -27,20 +28,23 @@ class Question
      * @ORM\Column(name="text", type="string", length=2000)
      */
     private $text;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Questionnaire", inversedBy="questions")
+     * @ORM\JoinColumn(name="questionnaire_id", referencedColumnName="id")
+     */
+    protected $questionnaire;
 
     /**
-     * @var integer $id_questionnaire
-     *
-     * @ORM\Column(name="id_questionnaire", type="integer")
+     * @ORM\OneToMany(targetEntity="Question", mappedBy="parent")
      */
-    private $id_questionnaire;
+    private $children;
 
     /**
-     * @var integer $parent_id
-     *
-     * @ORM\Column(name="parent_id", type="integer")
+     * @ORM\ManyToOne(targetEntity="Question", inversedBy="children")
+     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id")
      */
-    private $parent_id;
+    private $parent;
 
     /**
      * @var integer $depend_id
@@ -49,6 +53,10 @@ class Question
      */
     private $depend_id;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Response", mappedBy="question")
+     */
+    protected $responses;
 
     /**
      * Get id
@@ -138,5 +146,91 @@ class Question
     public function getDependId()
     {
         return $this->depend_id;
+    }
+
+    /**
+     * Set questionnaire
+     *
+     * @param Gamma\Bundle\SurveyBundle\Entity\Questionnaire $questionnaire
+     */
+    public function setQuestionnaire(\Gamma\Bundle\SurveyBundle\Entity\Questionnaire $questionnaire)
+    {
+        $this->questionnaire = $questionnaire;
+    }
+
+    /**
+     * Get questionnaire
+     *
+     * @return Gamma\Bundle\SurveyBundle\Entity\Questionnaire 
+     */
+    public function getQuestionnaire()
+    {
+        return $this->questionnaire;
+    }
+    
+    public function __construct()
+    {
+        $this->responses = new ArrayCollection();
+        $this->children = new \Doctrine\Common\Collections\ArrayCollection();        
+    }
+
+    /**
+     * Add responses
+     *
+     * @param Gamma\Bundle\SurveyBundle\Entity\Response $responses
+     */
+    public function addResponse(\Gamma\Bundle\SurveyBundle\Entity\Response $responses)
+    {
+        $this->responses[] = $responses;
+    }
+
+    /**
+     * Get responses
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getResponses()
+    {
+        return $this->responses;
+    }
+
+    /**
+     * Add children
+     *
+     * @param Gamma\Bundle\SurveyBundle\Entity\Question $children
+     */
+    public function addQuestion(\Gamma\Bundle\SurveyBundle\Entity\Question $children)
+    {
+        $this->children[] = $children;
+    }
+
+    /**
+     * Get children
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getChildren()
+    {
+        return $this->children;
+    }
+
+    /**
+     * Set parent
+     *
+     * @param Gamma\Bundle\SurveyBundle\Entity\Question $parent
+     */
+    public function setParent(\Gamma\Bundle\SurveyBundle\Entity\Question $parent)
+    {
+        $this->parent = $parent;
+    }
+
+    /**
+     * Get parent
+     *
+     * @return Gamma\Bundle\SurveyBundle\Entity\Question 
+     */
+    public function getParent()
+    {
+        return $this->parent;
     }
 }

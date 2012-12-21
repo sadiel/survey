@@ -3,6 +3,8 @@
 namespace Gamma\Bundle\SurveyBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
 
 /**
  * Gamma\Bundle\SurveyBundle\Entity\Questionnaire
@@ -28,6 +30,10 @@ class Questionnaire
      */
     private $name;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Question", mappedBy="questionnaire")
+     */
+    protected $questions;
 
     /**
      * Get id
@@ -57,5 +63,30 @@ class Questionnaire
     public function getName()
     {
         return $this->name;
+    }
+    
+    public function __construct()
+    {
+        $this->questions = new ArrayCollection();
+    }
+
+    /**
+     * Add questions
+     *
+     * @param Gamma\Bundle\SurveyBundle\Entity\Question $questions
+     */
+    public function addQuestion(\Gamma\Bundle\SurveyBundle\Entity\Question $questions)
+    {
+        $this->questions[] = $questions;
+    }
+
+    /**
+     * Get questions
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getQuestions()
+    {
+        return $this->questions;
     }
 }
