@@ -39,8 +39,16 @@ You're now ready to use the application. Note that it is **incomplete**.
 
 To see a the API documentation, access the following page:
 
-    http://localhost/web/app_dev.php/api/doc/
+    http://localhost/web/api/doc/
 
+There you can find routes like:
+
+    http://localhost/answer/list
+    http://localhost/answer/{id}
+
+You can testing the POST request with CURL
+
+    curl -v -H "Content-Type: application/json" -X POST -d '{"answer":{"id_questionnaire": 1, "id_question": 1, "id_response":1, "value":"yes", "id_user":1}}' http://localhost/answer
 
 Description
 -----------
@@ -61,6 +69,7 @@ Bundles:
 * **FOSRest**
 * **JMSSerializerBundle** 
 * **NelmioApiDocBundle** 
+
 
 TODO:
 -----
