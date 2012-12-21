@@ -48,10 +48,6 @@ Execute the following:
 
 You're now ready to use the application. Note that it is **incomplete**.
 
-To see a the API documentation, access the following page:
-
-    http://localhost/web/api/doc/
-
 There you can find routes like:
 
     http://localhost/answer/list
@@ -60,6 +56,13 @@ There you can find routes like:
 You can testing the POST request with CURL
 
     curl -v -H "Content-Type: application/json" -X POST -d '{"answer":{"id_questionnaire": 1, "id_question": 1, "id_response":1, "value":"yes", "id_user":1}}' http://localhost/answer
+
+To see a the API documentation, access the following page:
+
+    http://localhost/web/api/doc/
+    
+It use the `NelmioApiDocBundle` and you can see an example at https://github.com/nelmio/NelmioApiDocBundle
+
 
 Description
 -----------
