@@ -1,7 +1,3 @@
-GammaSurveyBundle_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: GammaSurveyBundle:Default:index }
-    
 gamma_survey_answer_all:
     pattern:  /answer/list
     defaults: { _controller: GammaSurveyBundle:Answer:all, _format: json }

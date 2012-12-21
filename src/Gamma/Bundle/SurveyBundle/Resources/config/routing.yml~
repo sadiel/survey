@@ -17,6 +17,6 @@ gamma_survey_answer_get:
     
 gamma_survey_answer_new:
     pattern:  /answer
-    defaults: { _controller: GammaSurveyBundle:Answer:new, _format: ~ }
+    defaults: { _controller: GammaSurveyBundle:Answer:new, _format: json }
     requirements:
         _method: POST    
