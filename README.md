@@ -64,11 +64,11 @@ Bundles:
 TODO:
 -----
 
--Add Doctrine relations between the Table Answer and the other tables.
--Add depend_id One-To-Many Self relation (in order to link questions that depend on another) in Question Table
--Add functions to create and modify the Survey, not the Answers because it is just incomplete.
--Finish the API Documentation
--Create a layer of Cache for the Answer in order to increase the speed access, even if symfony2 comes with cache techniques.
--Optimize the SQL queries 
+* Add Doctrine relations between the Table Answer and the other tables.
+* Add depend_id One-To-Many Self relation (in order to link questions that depend on another) in Question Table
+* Add functions to create and modify the Survey, not the Answers because it is just incomplete.
+* Finish the API Documentation.
+* Create a layer of Cache for the Answer in order to increase the speed access, even if symfony2 comes with cache system.
+* Optimize the SQL queries. 
 
 
