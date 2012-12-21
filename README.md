@@ -67,6 +67,7 @@ Description
 Database:
 
     Table         Fields
+    
     Questionnaire (id, name)
     Question      (id, text, id_questionnaire, parent_id, depend_id)
     Response      (id, text, id_question, kind)
