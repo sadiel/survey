@@ -3,6 +3,17 @@ Gamma Survey Test2
 
 Welcome to the Gamma Survey Test2. This document contains information on how to download and start using it.
 
+Question 
+--------
+
+L'association française de réputation des parisiens émigrés dans le monde a besoin de statistiques sur la réputation de ses membres.
+Afin de pouvoir lancer sa campagne de communication 'Un parisien, c'est bien' au budget pantagruellique, vous êtes mandatés pour definir une API REST exposant l'ensemble des sondages effectués à travers le monde. Cette API permet à différentes applications de créer une interface pour tout ces questionnaires et de renvoyer les réponses de chaque participant pour que vous puissiez les stocker.
+Il vous faudra donc modéliser l'ensemble des questionnaires dont les templates sont joints dans les fichier attachés (*.txt) dans le système de gestion de donnée de votre choix, avec les language, outil et/ou framework de votre choix, et les exposer au travers de cette API pour consultation et modification. Vous n'aurez pas besoin de dessiner d'interface ou d'afficher autre chose que des réponses HTTP (JSON).
+En bonus, vous pourrez proposer une architecture et/ou un outil qui permettrai de connaître en temps réel, les résultats du sondage, et de faire un 'scoring' de la réputation ainsi obtenue en fonction d'une ponderation en point de chaque réponse et de l'importance de chaque question. Cette architecture devra être pensée et dimensionner jusqu'à pouvoir atteindre plus de 1 milliard de répondant dans le monde.
+
+Answer
+======
+
 Note that you **must** have git installed and be able to execute the `git` command to execute this script.
 
 See the requirements to install Symfony2 like APC, disable short_tags, etc.
