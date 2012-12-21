@@ -3,7 +3,8 @@ Gamma Survey Test2
 
 Welcome to the Gamma Survey Test2. This document contains information on how to download and start using it.
 
-Note that you **must** have git installed and be able to execute the `git` command to execute this script. 
+Note that you **must** have git installed and be able to execute the `git` command to execute this script.
+
 See the requirements to install Symfony2 like APC, disable short_tags, etc.
 
 
