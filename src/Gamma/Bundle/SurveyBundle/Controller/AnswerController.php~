@@ -10,6 +10,8 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
+use Gamma\Bundle\SurveyBundle\Entity\Answer;
+
 class AnswerController extends Controller
 {
     
@@ -20,9 +22,11 @@ class AnswerController extends Controller
     {
         $answers = $this->getDoctrine()
             ->getRepository('GammaSurveyBundle:Answer')
-            ->findAll;
-
-        return new Response(json_encode(array('answers' => $answers)));
+            ->findAll();
+        
+        $serializer = $this->container->get('jms_serializer');
+        $reports = $serializer->serialize($answers, 'json');
+        return new Response($reports);  
     }
     
     /**
@@ -30,19 +34,19 @@ class AnswerController extends Controller
      */
     public function getAction($id)
     {   
-        /*$answer = $this->getDoctrine()
-            ->getRepository('GammaSurveyBundle:answer')
-            ->find($id);
+        $answer = $this->getDoctrine()
+            ->getRepository('GammaSurveyBundle:Answer')
+            ->find($id);         
 
         if (!$answer) {
             throw $this->createNotFoundException(
                 'No answer found for id '.$id
             );
-        }*/
-
-        $answer = array('test1' => 1, 'test2' => 2);
-
-        return new Response(json_encode(array('answer' => $answer)));        
+        }
+        
+        $serializer = $this->container->get('serializer');
+        $reports = $serializer->serialize($answer, 'json');
+        return new Response($reports);    
     }
     
     /**
@@ -51,14 +55,23 @@ class AnswerController extends Controller
     public function newAction(Request $request)
     {
         
-        $answer = $request->request->get('answer');
+        $newAnswer = $request->request->get('answer');
         
-        //echo $request->request->get('answer'); exit;
+        $answerModel = new Answer();
         
-        /*$em = $this->getDoctrine()->getManager();
-        $em->persist($answer); 
-        $em->flush();*/
+        //$answer->fromArray($newAnswer);
         
-        return new Response(json_encode(array('answer' => $answer)));        
+        $answerModel->setIdQuestionnaire($newAnswer['id_questionnaire']);
+        $answerModel->setIdQuestion($newAnswer['id_question']);
+        $answerModel->setIdResponse($newAnswer['id_response']);
+        $answerModel->setValue($newAnswer['value']);
+        $answerModel->setIdUser($newAnswer['id_user']);
+
+        
+        $em = $this->getDoctrine()->getEntityManager();
+        $em->persist($answerModel); 
+        $em->flush();
+        
+        return new Response('Created answer id '.$answerModel->getId());        
     }
 }
