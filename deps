@@ -75,3 +75,7 @@
     target=bundles/JMS/SerializerBundle
     version=0.9.0
 
+[NelmioApiDocBundle]
+    git=git://github.com/nelmio/NelmioApiDocBundle.git
+    target=bundles/Nelmio/ApiDocBundle
+    version=1.0.0

@@ -4,19 +4,19 @@ GammaSurveyBundle_homepage:
     
 gamma_survey_answer_all:
     pattern:  /answer/list
-    defaults: { _controller: GammaSurveyBundle:Answer:all, _format: ~ }
+    defaults: { _controller: GammaSurveyBundle:Answer:all, _format: json }
     requirements:
         _method: GET
 
 gamma_survey_answer_get:
     pattern:  /answer/{id}
-    defaults: { _controller: GammaSurveyBundle:Answer:get, _format: ~ }
+    defaults: { _controller: GammaSurveyBundle:Answer:get, _format: json }
     requirements:
         _method: GET
         id: "\d+"
     
 gamma_survey_answer_new:
-    pattern:  /newanswer
+    pattern:  /answer
     defaults: { _controller: GammaSurveyBundle:Answer:new, _format: ~ }
     requirements:
         _method: POST    

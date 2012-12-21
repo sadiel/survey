@@ -12,12 +12,17 @@ use Symfony\Component\HttpFoundation\Response;
 
 use Gamma\Bundle\SurveyBundle\Entity\Answer;
 
+use Nelmio\ApiDocBundle\Annotation\ApiDoc;
+
 class AnswerController extends Controller
 {
     
     /**
-     * @Rest\View
-     */ 
+     * @ApiDoc(
+     *  resource=true,
+     *  description="Show all answers"
+     * )
+     */
     public function allAction()
     {
         $answers = $this->getDoctrine()
@@ -30,7 +35,15 @@ class AnswerController extends Controller
     }
     
     /**
-     * @Rest\View
+     * @ApiDoc(
+     *  resource=true,
+     *  description="Get an answer",
+     *  filters={
+     *      {"name"="a-filter", "dataType"="integer"},
+     *      {"name"="another-filter", "dataType"="string", "pattern"="(foo|bar) ASC|DESC"}
+     *  },
+     *  output="Gamma\Bundle\SurveyBundle\Entity\Answer"
+     * )
      */
     public function getAction($id)
     {   
@@ -50,13 +63,18 @@ class AnswerController extends Controller
     }
     
     /**
-     * @Rest\View
-     */ 
+     * @ApiDoc(
+     *  resource=true,     
+     *  description="Create a new Answer",
+     *  input="Your\Namespace\Form\Type\YourType",
+     *  output="Your\Namespace\Class"
+     * )
+     */
     public function newAction(Request $request)
     {
         
         $newAnswer = $request->request->get('answer');
-        
+
         $answerModel = new Answer();
         
         //$answer->fromArray($newAnswer);

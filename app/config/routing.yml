@@ -2,11 +2,16 @@ GammaSurveyBundle:
     resource: "@GammaSurveyBundle/Resources/config/routing.yml"
     prefix:   /
 
-answer:
-    type:     rest
-    resource: Gamma\Bundle\SurveyBundle\Controller\AnswerController
+    
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc    
 
 # Internal routing configuration to handle ESI
 #_internal:
 #   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
 #   prefix:   /_internal
+
+#answer:
+#    type:     rest
+#    resource: Gamma\Bundle\SurveyBundle\Controller\AnswerController

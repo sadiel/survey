@@ -8,11 +8,12 @@ swiftmailer v4.2.1
 assetic v1.0.3
 twig-extensions d1990ffaca93302709d1306d50ae153adb169f49
 metadata 1.1.0
-SensioFrameworkExtraBundle v2.0.17
+SensioFrameworkExtraBundle v2.0.20
 JMSSecurityExtraBundle e752f888c51425f71382c056961f10f2be642102
 SensioDistributionBundle v2.0.17
 SensioGeneratorBundle v2.0.19
 AsseticBundle 6f15728c1aefa5246caa83730e3dbf70b0d46052
 FOSRest b48857315c39715245303fb5bbc1bab98026209e
-FOSRestBundle d1b3fcf34fba7e3f6ce78753bd205731e66d84b8
+FOSRestBundle 9991dbc36d16dcf5bf79f0c2decc2435d753008e
 JMSSerializerBundle 0.9.0
+NelmioApiDocBundle 1.0.0

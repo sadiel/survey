@@ -19,6 +19,7 @@ $loader->registerNamespaces(array(
     'FOS'              => __DIR__.'/../vendor/bundles',
     'JMS'              => __DIR__.'/../vendor/bundles',    
     'Metadata'         => __DIR__.'/../vendor/metadata/src',
+    'Nelmio'           => __DIR__.'/../vendor/bundles',    
 ));
 $loader->registerPrefixes(array(
     'Twig_Extensions_' => __DIR__.'/../vendor/twig-extensions/lib',
